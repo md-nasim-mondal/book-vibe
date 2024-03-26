@@ -1,4 +1,3 @@
-import { stringify } from "postcss";
 
 const getLSStoredBookList = (list) => {
     const storedReadBookList = localStorage.getItem(list);

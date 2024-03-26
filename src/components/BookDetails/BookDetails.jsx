@@ -1,7 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { getLSStoredBookList, saveLSList } from "../../utility/localStorage";
 
 const BookDetails = () => {
@@ -11,28 +11,24 @@ const BookDetails = () => {
     const book = books.find((book) => book.bookId === bookIdInt);
 
     const handleReadBtn = () => {
-        const toastContent = saveLSList(bookIdInt, 'read-list', 'read-list');
-        if(toastContent === 'success'){
-            
-        toast.success("You have successfully added to Read-Book-List");
-        }
-        else{
+        const toastContent = saveLSList(bookIdInt, "read-list", "read-list");
+        if (toastContent === "success") {
+            toast.success("You have successfully added to Read-Book-List");
+        } else {
             toast.warn("The book already added to Read-Book-List !!!");
         }
     };
     const handleWishlistBtn = () => {
-        const storedBookIds = getLSStoredBookList('read-list');
-        const existsRead = storedBookIds.find(Id => Id === bookId);
-        if(!existsRead){
-            const toastContent = saveLSList(bookIdInt, 'wishlist', 'read-list');
-            if(toastContent === 'success'){
+        const storedBookIds = getLSStoredBookList("read-list");
+        const existsRead = storedBookIds.find((Id) => Id === bookId);
+        if (!existsRead) {
+            const toastContent = saveLSList(bookIdInt, "wishlist", "read-list");
+            if (toastContent === "success") {
                 toast.success("You have successfully added to Wishlist");
-            }
-            else{
-                toast.warn("The book already exists in Read-Book-List !!!")
+            } else {
+                toast.warn("The book already exists in Read-Book-List !!!");
             }
         }
-        
     };
 
     return (
