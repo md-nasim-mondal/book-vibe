@@ -1,4 +1,4 @@
-const getStoredReadBookList = (list) => {
+const getLSStoredBookList = (list) => {
     const storedReadBookList = localStorage.getItem(list);
     if(storedReadBookList){
         return JSON.parse(storedReadBookList);
@@ -7,7 +7,7 @@ const getStoredReadBookList = (list) => {
 }
 
 const saveReadList = (id, list, storedList) => {
-    const storedReadBooksList = getStoredReadBookList(storedList);
+    const storedReadBooksList = getLSStoredBookList(storedList);
     const exists = storedReadBooksList.find(bookId => bookId === id);
     if(!exists){
         storedReadBooksList.push(id);
@@ -17,4 +17,4 @@ const saveReadList = (id, list, storedList) => {
     return('failure')
 }
 
-export {getStoredReadBookList, saveReadList}
+export {getLSStoredBookList, saveReadList}

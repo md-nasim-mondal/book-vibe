@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getStoredReadBookList } from "../../utility/localStorage";
+import { getLSStoredBookList } from "../../utility/localStorage";
 import ReadBook from "../ReadBook/ReadBook";
 
 const ListedBooks = () => {
     const books = useLoaderData();
     const [readBooks, setReadBooks] = useState([]);
     useEffect(() => {
-        const storedBookIds = getStoredReadBookList('read-list');
+        const storedBookIds = getLSStoredBookList('read-list');
         if(books.length > 0){
             const bookReads =  books.filter(book => storedBookIds.includes(book.bookId));
             setReadBooks(bookReads);

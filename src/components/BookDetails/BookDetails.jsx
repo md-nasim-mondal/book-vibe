@@ -2,7 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { getStoredReadBookList, saveReadList } from "../../utility/localStorage";
+import { getLSStoredBookList, saveReadList } from "../../utility/localStorage";
 
 const BookDetails = () => {
     const books = useLoaderData();
@@ -21,7 +21,7 @@ const BookDetails = () => {
         }
     };
     const handleWishlistBtn = () => {
-        const storedBookIds = getStoredReadBookList('read-list');
+        const storedBookIds = getLSStoredBookList('read-list');
         const existsRead = storedBookIds.find(Id => Id === bookId);
         if(!existsRead){
             const toastContent = saveReadList(bookIdInt, 'wishlist', 'read-list');

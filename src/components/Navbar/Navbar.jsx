@@ -3,14 +3,14 @@ import '../../App.css';
 const Navbar = () => {
     const links = (
         <>
-            <li className="text-[#131313CC] text-lg font-normal">
-                <NavLink to={'/'}>Home</NavLink>
+            <li>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'} to={'/'}>Home</NavLink>
             </li>
-            <li className="text-[#131313CC] text-lg font-normal">
-                <NavLink to={'/listedBooks'}>Listed Books</NavLink>
+            <li>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/listedBooks'}>Listed Books</NavLink>
             </li>
-            <li className="text-[#131313CC] text-lg font-normal">
-                <NavLink to={'/pagesToRead'}>Pages to Read</NavLink>
+            <li>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/pagesToRead'}>Pages to Read</NavLink>
             </li>
         </>
     );
