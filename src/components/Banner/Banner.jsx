@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BannerImg from "../../assets/images/banner.png";
 
 const Banner = () => {
@@ -9,9 +10,9 @@ const Banner = () => {
                     <br />
                     up your bookshelf
                 </h1>
-                <button className="btn btn-outline bg-[#23BE0A] text-[#FFFFFF] rounded-lg md:text-lg font-medium">
+                <Link className="btn btn-outline bg-[#23BE0A] text-[#FFFFFF] rounded-lg md:text-lg font-medium" to={'/listedBooks'}>
                     View The List
-                </button>
+                </Link>
             </div>
             <div className="flex justify-center w-[66%] md:w-[30%]">
                 <img src={BannerImg} alt="BookImg" />
