@@ -6,7 +6,7 @@ const getLSStoredBookList = (list) => {
     return [];
 }
 
-const saveReadList = (id, list, storedList) => {
+const saveLSList = (id, list, storedList) => {
     const storedReadBooksList = getLSStoredBookList(storedList);
     const exists = storedReadBooksList.find(bookId => bookId === id);
     if(!exists){
@@ -17,4 +17,4 @@ const saveReadList = (id, list, storedList) => {
     return('failure')
 }
 
-export {getLSStoredBookList, saveReadList}
+export {getLSStoredBookList, saveLSList}
