@@ -33,7 +33,7 @@ const ReadBook = ({ book }) => {
                         {tags.map((tag, idx) => (
                             <button
                                 key={idx}
-                                className="rounded-xl border-none bg-[#23BE0A0D] px-4 py-1 text-[#23BE0A]">
+                                className="rounded-xl border-none bg-[#23BE0A0D] px-4 py-1 font-medium text-[#23BE0A]">
                                 #{tag}
                             </button>
                         ))}

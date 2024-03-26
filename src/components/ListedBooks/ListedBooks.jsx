@@ -7,12 +7,12 @@ const ListedBooks = () => {
     const books = useLoaderData();
     const [readBooks, setReadBooks] = useState([]);
     useEffect(() => {
-        const storedBookIds = getStoredReadBookList();
+        const storedBookIds = getStoredReadBookList('read-list');
         if(books.length > 0){
             const bookReads =  books.filter(book => storedBookIds.includes(book.bookId));
             setReadBooks(bookReads);
         }
-    },[books])
+    },[books]);
     return (
         <div>
             <div role="tablist" className="tabs tabs-lifted">
