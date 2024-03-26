@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { getLSStoredBookList } from "../../utility/localStorage";
 import ReadBook from "../ReadBook/ReadBook";
 import { IoIosArrowDown } from "react-icons/io";
+import WishListBook from "../WishListBook/WishListBook";
 
 const ListedBooks = () => {
     const books = useLoaderData();
@@ -16,6 +17,17 @@ const ListedBooks = () => {
             setReadBooks(bookReads);
         }
     }, [books]);
+    const [wishList, setWishList] = useState([]);
+    useEffect(() => {
+        const storedBookIds = getLSStoredBookList("wishlist");
+        if (books.length > 0) {
+            const newWishList = books.filter((book) =>
+                storedBookIds.includes(book.bookId)
+            );
+            setWishList(newWishList);
+        }
+    }, [books]);
+
     return (
         <div>
             <div className="w-full h-[100px] bg-[#1313130D] flex items-center justify-center rounded-2xl">
@@ -67,7 +79,11 @@ const ListedBooks = () => {
                 <div
                     role="tabpanel"
                     className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    Tab content 2
+                    <div className="grid gap-6 mt-8">
+                        {wishList.map((book, idx) => (
+                            <WishListBook key={idx} book={book}></WishListBook>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,7 +12,6 @@ const ErrorPage = () => {
                     <h3 className="text-4xl lg:text-7xl">Page Not Found</h3>
 
                     <Link to="/">
-                        {" "}
                         <button className="btn btn-ghost text-xl font-bold border border-red-600 rounded-lg text-red-600 py-2 px-4 ">
                             Back Home
                         </button>
