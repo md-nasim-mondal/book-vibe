@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { saveReadList } from "../../utility/localStorage";
 
 const BookDetails = () => {
     const books = useLoaderData();
@@ -10,6 +11,7 @@ const BookDetails = () => {
     const book = books.find((book) => book.bookId === bookIdInt);
 
     const handleReadBtn = () => {
+        saveReadList(bookIdInt);
         toast.success("You have successfully added to Read list");
     };
     const handleWishlistBtn = () => {
@@ -94,12 +96,12 @@ const BookDetails = () => {
                 <div className="flex gap-4 pt-8">
                     <button
                         onClick={handleReadBtn}
-                        className="px-7 py-4 btn-ghost text-[#131313] border-[#1313134D] text-lg font-semibold border border-solid rounded-lg">
+                        className="px-4 md:px-7 py-2 md:py-4 btn-ghost text-[#131313] border-[#1313134D] text-lg font-semibold border border-solid rounded-lg">
                         Read
                     </button>
                     <button
                         onClick={handleWishlistBtn}
-                        className="px-7 py-4 btn-ghost text-[#FFFFFF] bg-[#50B1C9] text-lg font-semibold rounded-lg">
+                        className="px-4 md:px-7 py-2 md:py-4 btn-ghost text-[#FFFFFF] bg-[#50B1C9] md:text-lg font-semibold rounded-lg">
                         Wishlist
                     </button>
                 </div>
