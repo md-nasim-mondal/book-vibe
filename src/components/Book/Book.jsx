@@ -3,10 +3,10 @@ import { CiStar } from "react-icons/ci";
 import "../../App.css";
 import { Link } from "react-router-dom";
 const Book = ({ book }) => {
-    const { img, tags, bookName, author, category, rating } = book;
+    const { bookId, img, tags, bookName, author, category, rating } = book;
     return (
         <Link
-            to={"/bookDetails"}
+            to={`/book/${bookId}`}
             className="p-6 rounded-2xl border-solid border border-[#13131326]">
             <div className="h-[230px] mb-6 rounded-2xl bg-[#F3F3F3]">
                 <img
@@ -29,7 +29,7 @@ const Book = ({ book }) => {
                     {bookName}
                 </h1>
                 <p className="text-base font-medium leading-5 text-[#131313CC] ">
-                    By: {author}{" "}
+                    By: {author}
                 </p>
             </div>
             <div className="flex justify-between font-medium leading-5 text-base text-[#131313CC]">
