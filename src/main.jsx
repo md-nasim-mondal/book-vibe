@@ -9,11 +9,14 @@ import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
+import BookDetails from './components/BookDetails/BookDetails';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
         path: "/pagesToRead",
         element: <PagesToRead></PagesToRead>,
       },
+      {
+        path: "/bookDetails",
+        element: <BookDetails></BookDetails>
+      }
     ],
   },
 ]);
