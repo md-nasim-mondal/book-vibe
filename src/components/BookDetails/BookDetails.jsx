@@ -20,7 +20,7 @@ const BookDetails = () => {
 
     return (
         <div className="flex flex-col md:flex-row gap-12 justify-between mb-16 md:mb-32">
-            <div className=" p-5 md:p-20 rounded-2xl bg-[#F3F3F3] w-[40%] md:w-auto mx-auto">
+            <div className=" p-5 md:p-20 rounded-2xl bg-[#F3F3F3] w-[40%] md:w-auto mx-auto flex items-center justify-center">
                 <img
                     src={book.img}
                     alt="bookImg"

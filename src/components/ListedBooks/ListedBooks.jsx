@@ -28,7 +28,7 @@ const ListedBooks = () => {
                 <div
                     role="tabpanel"
                     className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <div className="grid gap-6">
+                    <div className="grid gap-6 mt-8">
                         {
                             readBooks.map((book, idx) => <ReadBook key={idx} book={book} ></ReadBook> )
                         }

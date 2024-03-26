@@ -16,8 +16,8 @@ const ReadBook = ({ book }) => {
         yearOfPublishing,
     } = book;
     return (
-        <div className="flex gap-6 border border-solid p-6 border-[#13131326] rounded-2xl">
-            <div  className=" p-5 flex items-center md:py-10 md:px-12 rounded-2xl bg-[#F3F3F3] w-[40%] md:w-auto mx-auto">
+        <div className="flex flex-col md:flex-row gap-6 border border-solid p-6 border-[#13131326] rounded-2xl">
+            <div  className=" p-5 flex items-center justify-center md:py-10 md:px-12 rounded-2xl bg-[#F3F3F3] w-[40%] h-[40%] md:h-auto md:w-auto mx-auto">
                 <img className="h-[172px]" src={img} alt="bookImg" />
             </div>
             <div className="flex-1">
