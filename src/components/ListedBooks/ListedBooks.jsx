@@ -8,6 +8,7 @@ import WishListBook from "../WishListBook/WishListBook";
 const ListedBooks = () => {
     const books = useLoaderData();
     const [readBooks, setReadBooks] = useState([]);
+    const [wishList, setWishList] = useState([]);
     useEffect(() => {
         const storedBookIds = getLSStoredBookList("read-list");
         if (books.length > 0) {
@@ -17,7 +18,6 @@ const ListedBooks = () => {
             setReadBooks(bookReads);
         }
     }, [books]);
-    const [wishList, setWishList] = useState([]);
     useEffect(() => {
         const storedBookIds = getLSStoredBookList("wishlist");
         if (books.length > 0) {
@@ -32,6 +32,30 @@ const ListedBooks = () => {
             a.rating > b.rating ? -1 : 1
         );
         setReadBooks(newReadList);
+        const newWishList = [...wishList].sort((a, b) => 
+            a.rating > b.rating ? -1 : 1
+        );
+        setWishList(newWishList);
+    };
+    const handleSortNumberOfPages = () => {
+        const newReadList = [...readBooks].sort((a, b) =>
+            a.totalPages > b.totalPages ? -1 : 1
+        );
+        setReadBooks(newReadList);
+        const newWishList = [...wishList].sort((a, b) => 
+            a.totalPages > b.totalPages ? -1 : 1
+        );
+        setWishList(newWishList);
+    };
+    const handleSortPublishYear = () => {
+        const newReadList = [...readBooks].sort((a, b) =>
+            a.yearOfPublishing > b.yearOfPublishing ? -1 : 1
+        );
+        setReadBooks(newReadList);
+        const newWishList = [...wishList].sort((a, b) => 
+            a.yearOfPublishing > b.yearOfPublishing ? -1 : 1
+        );
+        setWishList(newWishList);
     };
     return (
         <div>
@@ -49,10 +73,10 @@ const ListedBooks = () => {
                         <li onClick={() => handleSortRating()}>
                             <a>Rating</a>
                         </li>
-                        <li>
+                        <li onClick={() => handleSortNumberOfPages()}>
                             <a>Number of Pages</a>
                         </li>
-                        <li>
+                        <li onClick={() => handleSortPublishYear()}>
                             <a>Publisher year</a>
                         </li>
                     </ul>
