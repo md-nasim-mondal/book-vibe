@@ -14,6 +14,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Contact from './components/Contact/Contact';
+import OldBooks from './components/OldBooks/OldBooks';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "/oldBooks",
+        element: <OldBooks></OldBooks>
       }
     ],
   },

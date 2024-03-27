@@ -13,7 +13,7 @@ const Navbar = () => {
                 <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/pagesToRead'}>Pages to Read</NavLink>
             </li>
             <li>
-                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/pagesToRead'}>Old Collection</NavLink>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/oldBooks'}>OldCollection</NavLink>
             </li>
             <li>
                 <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/contact'}>Contact Us</NavLink>
@@ -27,7 +27,7 @@ const Navbar = () => {
                     <div
                         tabIndex={0}
                         role="button"
-                        className="btn-ghost lg:hidden">
+                        className="btn-ghost xl:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -50,7 +50,7 @@ const Navbar = () => {
                 </div>
                 <a className=" btn-ghost text-xl md:text-3xl text-[#131313] font-bold">Book Vibe</a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden xl:flex">
                 <ul className="menu menu-horizontal px-1 gap-1 flex flex-1">
                     {links}
                 </ul>
