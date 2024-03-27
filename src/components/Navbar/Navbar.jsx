@@ -12,6 +12,12 @@ const Navbar = () => {
             <li>
                 <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/pagesToRead'}>Pages to Read</NavLink>
             </li>
+            <li>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/pagesToRead'}>Old Collection</NavLink>
+            </li>
+            <li>
+                <NavLink  className={({isActive}) => isActive ? 'text-lg font-semibold btn-outline bg-none border-solid border border-[#23BE0A] rounded-lg text-[#23BE0A]' : 'text-lg text-[#131313cc] font-normal'}  to={'/contact'}>Contact Us</NavLink>
+            </li>
         </>
     );
     return (
@@ -45,7 +51,7 @@ const Navbar = () => {
                 <a className=" btn-ghost text-xl md:text-3xl text-[#131313] font-bold">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-2">
+                <ul className="menu menu-horizontal px-1 gap-1 flex flex-1">
                     {links}
                 </ul>
             </div>
