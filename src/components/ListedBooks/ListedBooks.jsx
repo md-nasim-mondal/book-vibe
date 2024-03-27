@@ -27,22 +27,25 @@ const ListedBooks = () => {
             setWishList(newWishList);
         }
     }, [books]);
-    const handleSortRating = () =>{
-        const newReadList = readBooks.sort((a,b)=>a.rating>b.rating?-1:1);
-        // console.log(newReadList);
+    const handleSortRating = () => {
+        const newReadList = [...readBooks].sort((a, b) =>
+            a.rating > b.rating ? -1 : 1
+        );
         setReadBooks(newReadList);
-    } 
-    console.log(readBooks);
-
+    };
     return (
         <div>
             <div className="w-full h-[100px] bg-[#1313130D] flex items-center justify-center rounded-2xl">
                 <h1 className="text-3xl font-bold text-[#131313]">Books</h1>
             </div>
             <div className="text-center mt-9">
-                <details className="dropdown">
-                    <summary className="m-1 btn mt-8 bg-[#23BE0A] text-[#FFFFFF]">Sort By <IoIosArrowDown className="text-xl" /></summary>
-                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn m-1 mt-8 bg-[#23BE0A] text-[#FFFFFF]">
+                        Sort By  <IoIosArrowDown className="text-xl" />
+                    </div>
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={() => handleSortRating()}>
                             <a>Rating</a>
                         </li>
@@ -53,7 +56,7 @@ const ListedBooks = () => {
                             <a>Publisher year</a>
                         </li>
                     </ul>
-                </details>
+                </div>
             </div>
             <div role="tablist" className="tabs tabs-lifted">
                 <input
@@ -94,6 +97,6 @@ const ListedBooks = () => {
             </div>
         </div>
     );
-}
+};
 
 export default ListedBooks;
