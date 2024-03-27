@@ -15,4 +15,4 @@ Welcome to Book Vibe, your online destination for discovering and exploring a va
 
 *5*. *Submission Guidelines:* Provide clear guidelines for authors interested in submitting their manuscripts to Vibe Books, including preferred genres and formatting requirements.
 
-*#   Our Website Link =* https://book-vibe-review.netlify.app/
+#   Our Website Live Link = https://book-vibe-review.netlify.app/
