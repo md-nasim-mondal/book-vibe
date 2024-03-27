@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { CiStar } from "react-icons/ci";
 import "../../App.css";
 
-const OldBook = ({book}) => {const {img, tags, bookName, author, category, rating } = book;
+const OldBook = ({book}) => {const {img, tags, bookName, author, category, rating, yearOfPublishing } = book;
     return (
         <div className="p-6 rounded-2xl border-solid border border-[#13131326]">
             <div className="h-[230px] mb-6 rounded-2xl bg-[#F3F3F3]">
@@ -25,9 +25,14 @@ const OldBook = ({book}) => {const {img, tags, bookName, author, category, ratin
                 <h1 className="text-2xl text-[#131313] font-bold leading-8">
                     {bookName}
                 </h1>
+                <div className="flex justify-between">
                 <p className="text-base font-medium leading-5 text-[#131313CC] ">
                     By: {author}
                 </p>
+                <p className="text-base font-medium leading-5 text-[#131313CC] ">
+                    Publishing Year: {yearOfPublishing}
+                </p>
+                </div>
             </div>
             <div className="flex justify-between font-medium leading-5 text-base text-[#131313CC]">
                 <p>{category}</p>
