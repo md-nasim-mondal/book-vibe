@@ -10,6 +10,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
+    ResponsiveContainer,
 } from "recharts";
 
 const PagesToRead = () => {
@@ -37,7 +38,7 @@ const PagesToRead = () => {
             x + width
         }, ${y + height}
   Z`;
-    };
+    }
 
     const TriangleBar = (props) => {
         const { fill, x, y, width, height } = props;
@@ -45,7 +46,7 @@ const PagesToRead = () => {
         return (
             <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />
         );
-    };
+    }
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -58,49 +59,51 @@ const PagesToRead = () => {
             );
         }
         return null;
-    };
+    }
 
     return (
-        <div className="flex justify-center items-center">
-            <BarChart
-            width={1000}
-            height={600}
-            data={readBooks}
-            margin={{
-                top: 20,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="bookName" />
-            <YAxis />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar
-                dataKey="totalPages"
-                fill="#8884d8"
-                shape={<TriangleBar />}
-                label={{ position: "top" }}>
-                {readBooks.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                ))}
-            </Bar>
-        </BarChart>
+        <div className="chart-container">
+            <ResponsiveContainer width="100%" height={400}>
+                <BarChart
+                    data={readBooks}
+                    margin={{
+                        top: 20,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="bookName" />
+                    <YAxis />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar
+                        dataKey="totalPages"
+                        fill="#8884d8"
+                        shape={<TriangleBar />}
+                        label={{ position: "top" }}
+                    >
+                        {readBooks.map((entry, index) => (
+                            <Cell
+                                key={`cell-${index}`}
+                                fill={colors[index % 20]}
+                            />
+                        ))}
+                    </Bar>
+                </BarChart>
+            </ResponsiveContainer>
         </div>
     );
-};
+}
 
 PagesToRead.propTypes = {
     active: PropTypes.bool,
     payload: PropTypes.array,
-};
-
-PagesToRead.propTypes = {
     fill: PropTypes.string.isRequired,
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
-};
+}
 
 export default PagesToRead;

@@ -1,7 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLoaderData, useParams } from "react-router-dom";
+
 import { getLSStoredBookList, saveLSList } from "../../utility/localStorage";
 
 const BookDetails = () => {
@@ -17,7 +18,7 @@ const BookDetails = () => {
         } else {
             toast.warn("The book already added to Read-Book-List !!!");
         }
-    };
+    }
     const handleWishlistBtn = () => {
         const storedBookIds = getLSStoredBookList("read-list");
         const existsRead = storedBookIds.find((Id) => Id === bookId);
@@ -29,8 +30,7 @@ const BookDetails = () => {
                 toast.warn("The book already exists in Read-Book-List !!!");
             }
         }
-    };
-
+    }
     return (
         <div className="flex flex-col md:flex-row gap-12 justify-between mb-16 md:mb-32">
             <div className=" p-5 md:p-20 rounded-2xl bg-[#F3F3F3] w-[40%] md:w-auto mx-auto flex items-center justify-center">
@@ -119,9 +119,9 @@ const BookDetails = () => {
                     </button>
                 </div>
             </div>
-            <ToastContainer />
+            <ToastContainer></ToastContainer>
         </div>
     );
-};
+}
 
 export default BookDetails;

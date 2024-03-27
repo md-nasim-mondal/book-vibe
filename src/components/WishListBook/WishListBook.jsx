@@ -59,10 +59,10 @@ const WishListBook = ({book}) => {
             </div>
         </div>
     );
-};
+}
 
 WishListBook.propTypes = {
     book: PropTypes.object,
-};
+}
 
 export default WishListBook;

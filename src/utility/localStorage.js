@@ -5,7 +5,7 @@ const getLSStoredBookList = (list) => {
         return JSON.parse(storedReadBookList);
     }
     return [];
-};
+}
 
 const saveLSList = (id, list, storedList) => {
     const storedReadBooksList = getLSStoredBookList(storedList);
@@ -23,6 +23,6 @@ const saveLSList = (id, list, storedList) => {
         }
     }
     return "failure";
-};
+}
 
-export { getLSStoredBookList, saveLSList };
+export { getLSStoredBookList, saveLSList }

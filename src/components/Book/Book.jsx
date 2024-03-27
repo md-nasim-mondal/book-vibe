@@ -41,10 +41,10 @@ const Book = ({ book }) => {
             </div>
         </Link>
     );
-};
+}
 
 Book.propTypes = {
     book: PropTypes.object,
-};
+}
 
 export default Book;

@@ -19,6 +19,6 @@ const Books = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Books;

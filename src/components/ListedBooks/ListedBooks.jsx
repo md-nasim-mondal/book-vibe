@@ -27,6 +27,12 @@ const ListedBooks = () => {
             setWishList(newWishList);
         }
     }, [books]);
+    const handleSortRating = () =>{
+        const newReadList = readBooks.sort((a,b)=>a.rating>b.rating?-1:1);
+        // console.log(newReadList);
+        setReadBooks(newReadList);
+    } 
+    console.log(readBooks);
 
     return (
         <div>
@@ -37,7 +43,7 @@ const ListedBooks = () => {
                 <details className="dropdown">
                     <summary className="m-1 btn mt-8 bg-[#23BE0A] text-[#FFFFFF]">Sort By <IoIosArrowDown className="text-xl" /></summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                        <li>
+                        <li onClick={() => handleSortRating()}>
                             <a>Rating</a>
                         </li>
                         <li>
@@ -88,6 +94,6 @@ const ListedBooks = () => {
             </div>
         </div>
     );
-};
+}
 
 export default ListedBooks;

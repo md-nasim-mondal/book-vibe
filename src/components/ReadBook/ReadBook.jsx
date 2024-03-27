@@ -58,10 +58,10 @@ const ReadBook = ({ book }) => {
             </div>
         </div>
     );
-};
+}
 
 ReadBook.propTypes = {
     book: PropTypes.object,
-};
+}
 
 export default ReadBook;

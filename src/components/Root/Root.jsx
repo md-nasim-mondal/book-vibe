@@ -8,6 +8,6 @@ const Root = () => {
             <Outlet></Outlet>
         </div>
     );
-};
+}
 
 export default Root;
