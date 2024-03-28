@@ -1,9 +1,8 @@
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData, useParams } from "react-router-dom";
-
 import { getLSStoredBookList, saveLSList } from "../../utility/localStorage";
+import "../../App.css";
 
 const BookDetails = () => {
     const books = useLoaderData();
@@ -51,17 +50,17 @@ const BookDetails = () => {
                     <h1 className="text-4xl text-[#131313] font-bold leading-12">
                         {book.bookName}
                     </h1>
-                    <p className="text-xl font-medium leading-6 text-[#131313CC] ">
+                    <p className="text-xl font-medium leading-6 text-[#131313CC] font-work-sans ">
                         By: {book.author}
                     </p>
                 </div>
                 <hr className="text-[#13131326] border-solid" />
-                <div className="py-4 text-xl font-medium leading-6 text-[#131313CC]">
+                <div className="py-4 text-xl font-medium leading-6 text-[#131313CC] font-work-sans">
                     {book.category}
                 </div>
                 <hr className="text-[#13131326] border-solid" />
                 <div className="pt-6 pb-12">
-                    <p className="text-base font-normal leading-[26px] text-[#131313B3]">
+                    <p className="text-base font-normal leading-[26px] text-[#131313B3] font-work-sans">
                         <span>Review:</span> {book.review}{" "}
                     </p>
                 </div>
@@ -72,14 +71,14 @@ const BookDetails = () => {
                     {book.tags.map((tag, idx) => (
                         <button
                             key={idx}
-                            className="rounded-xl border-none bg-[#23BE0A0D] px-4 py-1 text-[#23BE0A]">
+                            className="rounded-xl border-none bg-[#23BE0A0D] px-4 py-1 text-[#23BE0A] font-work-sans">
                             #{tag}
                         </button>
                     ))}
                 </div>
                 <hr className="text-[#13131326] border-solid" />
                 <div>
-                    <div className="flex gap-12 md:gap-16">
+                    <div className="flex gap-12 md:gap-16 font-work-sans">
                         <p className="text-base leading-7 text-[#131313B3] ">
                             Number of Pages:
                         </p>
@@ -112,7 +111,7 @@ const BookDetails = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex gap-4 pt-8">
+                <div className="flex gap-4 pt-8 font-work-sans">
                     <button
                         onClick={handleReadBtn}
                         className="px-4 md:px-7 py-2 md:py-4 btn-ghost text-[#131313] border-[#1313134D] text-lg font-semibold border border-solid rounded-lg">

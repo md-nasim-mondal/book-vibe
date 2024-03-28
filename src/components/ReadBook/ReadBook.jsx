@@ -3,6 +3,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { MdPeopleOutline } from "react-icons/md";
 import { TbPageBreak } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import '../../App.css';
 const ReadBook = ({ book }) => {
     const {bookId, 
         bookName,
@@ -23,10 +24,10 @@ const ReadBook = ({ book }) => {
             <div className="flex-1">
                 <div className="space-y-5">
                 <h1 className="text-2xl font-bold leading-8">{bookName} </h1>
-                    <p className="text-base font-medium leading-5 text-[#131313CC]">
+                    <p className="text-base font-medium leading-5 text-[#131313CC] font-work-sans">
                         By: <span>{author}</span>
                     </p>
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-4 font-work-sans">
                         <p className="text-base font-bold leading-6 text-[#131313]">
                             Tag
                         </p>
@@ -42,13 +43,13 @@ const ReadBook = ({ book }) => {
                             Publishing: {yearOfPublishing}{" "}
                         </p>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-base font-normal text-[#13131399]">
+                    <div className="flex flex-wrap gap-4 text-base font-normal text-[#13131399] font-work-sans">
                         <p className="flex gap-2 items-center"><MdPeopleOutline className="text-2xl" /> Publisher: {publisher} </p>
                         <p className="flex gap-2 items-center"><TbPageBreak className="text-2xl" /> Page {totalPages} </p>
                     </div>
                 </div>
                 <hr className="text-[#13131326] border-solid my-4" />
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 font-work-sans">
                         <button className=" btn-ghost px-4 md:px-7 py-2 md:py-4 border-none text-[#328EFF] bg-[#328EFF26] md:text-base rounded-[30px] font-normal">
                             Category: {category}{" "}
                         </button>
