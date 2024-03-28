@@ -4,6 +4,8 @@ import { getLSStoredBookList } from "../../utility/localStorage";
 import ReadBook from "../ReadBook/ReadBook";
 import { IoIosArrowDown } from "react-icons/io";
 import WishListBook from "../WishListBook/WishListBook";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const ListedBooks = () => {
     const books = useLoaderData();
@@ -32,7 +34,7 @@ const ListedBooks = () => {
             a.rating > b.rating ? -1 : 1
         );
         setReadBooks(newReadList);
-        const newWishList = [...wishList].sort((a, b) => 
+        const newWishList = [...wishList].sort((a, b) =>
             a.rating > b.rating ? -1 : 1
         );
         setWishList(newWishList);
@@ -42,7 +44,7 @@ const ListedBooks = () => {
             a.totalPages > b.totalPages ? -1 : 1
         );
         setReadBooks(newReadList);
-        const newWishList = [...wishList].sort((a, b) => 
+        const newWishList = [...wishList].sort((a, b) =>
             a.totalPages > b.totalPages ? -1 : 1
         );
         setWishList(newWishList);
@@ -52,7 +54,7 @@ const ListedBooks = () => {
             a.yearOfPublishing > b.yearOfPublishing ? -1 : 1
         );
         setReadBooks(newReadList);
-        const newWishList = [...wishList].sort((a, b) => 
+        const newWishList = [...wishList].sort((a, b) =>
             a.yearOfPublishing > b.yearOfPublishing ? -1 : 1
         );
         setWishList(newWishList);
@@ -64,8 +66,11 @@ const ListedBooks = () => {
             </div>
             <div className="text-center mt-9">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn m-1 mt-8 bg-[#23BE0A] text-[#FFFFFF]">
-                        Sort By  <IoIosArrowDown className="text-xl" />
+                    <div
+                        tabIndex={0}
+                        role="button"
+                        className="btn m-1 mt-8 bg-[#23BE0A] text-[#FFFFFF]">
+                        Sort By <IoIosArrowDown className="text-xl" />
                     </div>
                     <ul
                         tabIndex={0}
@@ -82,43 +87,27 @@ const ListedBooks = () => {
                     </ul>
                 </div>
             </div>
-            <div role="tablist" className="tabs tabs-lifted">
-                <input
-                    type="radio"
-                    name="my_tabs_2"
-                    role="tab"
-                    className="tab"
-                    aria-label="Read Books"
-                    checked={true}
-                    readOnly
-                />
-                <div
-                    role="tabpanel"
-                    className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+            <Tabs>
+                <TabList>
+                    <Tab>Read Books</Tab>
+                    <Tab>Wishlist Books</Tab>
+                </TabList>
+
+                <TabPanel>
                     <div className="grid gap-6 mt-8">
                         {readBooks.map((book, idx) => (
                             <ReadBook key={idx} book={book}></ReadBook>
                         ))}
                     </div>
-                </div>
-
-                <input
-                    type="radio"
-                    name="my_tabs_2"
-                    role="tab"
-                    className="tab"
-                    aria-label="Wishlist Books"
-                />
-                <div
-                    role="tabpanel"
-                    className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                </TabPanel>
+                <TabPanel>
                     <div className="grid gap-6 mt-8">
                         {wishList.map((book, idx) => (
                             <WishListBook key={idx} book={book}></WishListBook>
                         ))}
                     </div>
-                </div>
-            </div>
+                </TabPanel>
+            </Tabs>
         </div>
     );
 };
