@@ -38,7 +38,7 @@ const PagesToRead = () => {
             x + width
         }, ${y + height}
   Z`;
-    }
+    };
 
     const TriangleBar = (props) => {
         const { fill, x, y, width, height } = props;
@@ -46,20 +46,20 @@ const PagesToRead = () => {
         return (
             <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />
         );
-    }
+    };
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             const data = payload[0].payload;
             return (
-                <div style={{ backgroundColor: "white", padding: "5px" }}>
-                    <p>{`Book: ${data.bookName}`}</p>
-                    <p>{`Pages: ${data.totalPages}`}</p>
+                <div className="bg-white p-2 rounded-lg">
+                    <p className="text-sm">{`Book: ${data.bookName}`}</p>
+                    <p className="text-sm">{`Pages: ${data.totalPages}`}</p>
                 </div>
             );
         }
         return null;
-    }
+    };
 
     return (
         <div className="chart-container">
@@ -70,11 +70,17 @@ const PagesToRead = () => {
                         top: 20,
                         right: 30,
                         left: 20,
-                        bottom: 5,
+                        bottom: 60,
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="bookName" />
+                    <XAxis 
+                        dataKey="bookName" 
+                        angle={-25}
+                        textAnchor="end"
+                        interval={0}
+                        className="text-[6px] md:text-[8px] lg:text-[10px] text-balance break-words"
+                    />
                     <YAxis />
                     <Tooltip content={<CustomTooltip />} />
                     <Bar
@@ -94,7 +100,7 @@ const PagesToRead = () => {
             </ResponsiveContainer>
         </div>
     );
-}
+};
 
 PagesToRead.propTypes = {
     active: PropTypes.bool,
@@ -104,6 +110,6 @@ PagesToRead.propTypes = {
     y: PropTypes.number,
     width: PropTypes.number,
     height: PropTypes.number,
-}
+};
 
 export default PagesToRead;
