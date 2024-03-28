@@ -13,9 +13,9 @@ const OldBookDetails = () => {
     const handleReadBtn = () => {
         const toastContent = saveLSList(bookIdInt, "read-list", "read-list");
         if (toastContent === "success") {
-            toast.success("You have successfully added to Read-Book-List");
+            toast("You have successfully added to Read-Book-List");
         } else {
-            toast.warn("The book already added to Read-Book-List !!!");
+            toast.error("The book already added to Read-Book-List!!!");
         }
     }
     const handleWishlistBtn = () => {
@@ -26,13 +26,13 @@ const OldBookDetails = () => {
             if (toastContent === "success") {
                 toast.success("You have successfully added to Wishlist");
             }else if (toastContent === "failure"){
-                toast.warn("The book already exists in Wish-List !!!");
+                toast.error("The book already exists in Wish-List!!!");
             }
             else if (toastContent === "looser"){
-                toast.warn("The book already exists in Read-List and Wish-List !!!")
+                toast.error("The book already exists in Read-List and Wish-List!!!")
             }
              else {
-                toast.warn("The book already exists in Read-Book-List !!!");
+                toast.error("The book already exists in Read-Book-List!!!");
             }
         }
     }
