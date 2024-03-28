@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { CiStar } from "react-icons/ci";
 import "../../App.css";
+import { Link } from "react-router-dom";
 
-const OldBook = ({book}) => {const {img, tags, bookName, author, category, rating, yearOfPublishing } = book;
+const OldBook = ({oldBook}) => {const { bookId, img, tags, bookName, author, category, rating, yearOfPublishing } = oldBook;
     return (
-        <div className="p-6 rounded-2xl border-solid border border-[#13131326]">
+        <Link to={`/oldBook/${bookId}`} className="p-6 rounded-2xl border-solid border border-[#13131326]">
             <div className="h-[230px] mb-6 rounded-2xl bg-[#F3F3F3]">
                 <img
                     src={img}
@@ -41,12 +42,12 @@ const OldBook = ({book}) => {const {img, tags, bookName, author, category, ratin
                     {rating} <CiStar className="text-2xl" />
                 </p>
             </div>
-        </div>
+        </Link>
     );
 };
 
 OldBook.propTypes = {
-    book: PropTypes.object,
+    oldBook: PropTypes.object,
 }
 
 export default OldBook;
